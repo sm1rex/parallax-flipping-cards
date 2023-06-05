@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: normal;
+            color: #444;
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .wrapper {
+            width: 90%;
+            margin: 0 auto;
+            max-width: 80rem;
+        }
+
+        .cols {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .col {
+            width: calc(25% - 2rem);
+            margin: 1rem;
+            cursor: pointer;
+        }
+
+        .container {
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .front,
+        .back {
+            background-size: cover;
+            box-shadow: 0 4px 8px 0px rgba(0, 0, 0, 0.25);
+            border-radius: 10px;
+            background-position: center;
+            transition: transform 0.7s ease-in-out;
+            backface-visibility: hidden;
+            text-align: center;
+            min-height: 280px;
+            height: auto;
+            border-radius: 10px;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .back {
+            background: #ff00bf;
+            background: linear-gradient(45deg, #ff00cc 0%, #00aeff 100%);
+        }
+
+        .front::after {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            content: "";
+            display: block;
+            opacity: 0.6;
+            background-color: #6d6d6d;
+            backface-visibility: hidden;
+            border-radius: 10px;
+            filter: brightness(0.5);
+        }
+
+        .container:hover .front,
+        .container:hover .back {
+            transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+        }
+
+        .back {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+        }
+
+        .container .back {
+            transform: rotateY(180deg)
+        }
+
+        .container .font {
+            transform: rotateY(180deg)
+        }
+
+        .inner {
+            transform: translateY(-50%) translateZ(60px) scale(0.94);
+            top: 50%;
+            position: absolute;
+            left: 0;
+            width: 100%;
+            padding: 32px;
+            box-sizing: border-box;
+            outline: 1px solid transparent;
+            perspective: inherit;
+            z-index: 2;
+        }
+
+        .container:hover .back {
+            transform: rotateY(0deg);
+            transform-style: preserve-3d;
+        }
+
+        .container:hover .front {
+            transform: rotateY(-180deg);
+            transform-style: preserve-3d;
+        }
+
+        .front .inner p {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .front .inner p::after {
+            content: '';
+            width: 4rem;
+            height: 2px;
+            position: absolute;
+            background: #c6d4df;
+            display: block;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            bottom: -0.75rem;
+        }
+
+        .front .inner span {
+            color: rgb(255, 255, 255);
+            font-family: 'Montserrat';
+            font-weight: 300;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <h1>Parallax Cards</h1>
+        <div class="cols">
+            <div class="col" ontouchstart="this.classList.toggle('hover')">
+                <div class="container">
+                    <div class="front" style="background-image: url(https://unsplash.it/500/500/);">
+                        <div class="inner">
+                            <p>Gold</p>
+                            <span>BOBA_KUNICORN</span>
+                        </div>
+                    </div>
+
+                    <div class="back">
+                        <div class="inner">
+                            <p>boba... I love boba... and kawaii_kunicorn...wait... let me just...MAKE A NEW ROBLOX
+                                ACCOUNT!.. I will call it... Boba_kunicorn:3</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <div class="col" ontouchstart="this.classList.toggle('hover')">
+                <div class="container">
+                    <div class="front" style="background-image: url(https://unsplash.it/500/500/);">
+                        <div class="inner">
+                            <p>Gold</p>
+                            <span>BOBA</span>
+                        </div>
+                    </div>
+
+                    <div class="back">
+                        <div class="inner">
+                            <p>Boba is the best!
+                                Boba is made from tapioca starch, also known as cassava starch, which is why they're
+                                often also labeled as "tapioca pearls."
+                                They're small spheres that are often simmered in a brown sugar syrup to give them a
+                                sweet taste and dark black color.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col" ontouchstart="this.classList.toggle('hover')">
+                <div class="container">
+                    <div class="front" style="background-image: url(https://unsplash.it/500/500/);">
+                        <div class="inner">
+                            <p>Gold</p>
+                            <span>K_K</span>
+                        </div>
+                    </div>
+
+                    <div class="back">
+                        <div class="inner">
+                            <p>sub to kawaii kunicorn now!
+                                holly, better online know as KAWAII_KUNICORN, is a great youtuber, sub to her
+                                channel
+                                now!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col" ontouchstart="this.classList.toggle('hover')">
+                <div class="container">
+                    <div class="front" style="background-image: url(https://unsplash.it/500/500/);">
+                        <div class="inner">
+                            <p>Gold</p>
+                            <span>gold kunicorn</span>
+                        </div>
+                    </div>
+
+                    <div class="back">
+                        <div class="inner">
+                            <p>kawaiiiiiii_KUNICORNNNN!!!!!!
+                                Hi! I'm Holly!I play games, tell stories, and try to make you laugh ✨ NEW VIDEO
+                                EVERY
+                                SATURDAY.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+</body>
+
+</html>
